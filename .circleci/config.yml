@@ -17,6 +17,9 @@ jobs:
           working_directory: ./.circleci/AnsiblePlayBook
           command: |
             ansible-playbook -i inventory.txt ./myPlaybook.yml
+=======
+            ansible-playbook -i inventory.txt main.yml
+>>>>>>> parent of 28fc8fc (.)
             
 
 workflows:
