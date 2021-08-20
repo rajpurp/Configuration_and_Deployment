@@ -14,8 +14,10 @@ jobs:
             apk add --update ansible # install the dependencies needed for your playbook
       - run:
           name: Configure server
+          working_directory: ./.circleci/files
           command: |
             ansible-playbook -i inventory.txt template.yml
+            
 
 workflows:
   my_workflow:
