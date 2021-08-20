@@ -1,20 +1,22 @@
-  
-Resources:
-  InstanceSecurityGroup:
-    Type: AWS::EC2::SecurityGroup
-    Properties:
-      GroupName: Ravi
-      GroupDescription: Allow ssh port 22
-      SecurityGroupIngress:
-        - IpProtocol: tcp
-          FromPort: 22
-          ToPort: 22
-          CidrIp: 0.0.0.0/0
-  EC2Instance:
-    Type: AWS::EC2::Instance
-    Properties:
-      InstanceType: t2.micro
-      SecurityGroups:
-        - Ref: InstanceSecurityGroup
-      KeyName: udacity
+--- 
+Resources: 
+  EC2Instance: 
+    Properties: 
       ImageId: ami-00399ec92321828f5
+      InstanceType: t2.micro
+      KeyName: udacity
+      SecurityGroups: 
+        - 
+          Ref: InstanceSecurityGroup
+    Type: "AWS::EC2::Instance"
+  InstanceSecurityGroup: 
+    Properties: 
+      GroupDescription: "Allow ssh port 22"
+      GroupName: Ravi
+      SecurityGroupIngress: 
+        - 
+          CidrIp: 0.0.0.0/0
+          FromPort: 22
+          IpProtocol: tcp
+          ToPort: 22
+    Type: "AWS::EC2::SecurityGroup"
